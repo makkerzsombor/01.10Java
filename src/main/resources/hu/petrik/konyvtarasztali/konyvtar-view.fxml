@@ -7,22 +7,22 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/19" fx:controller="hu.petrik.konyvtarasztali.Controller">
+<VBox spacing="20.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.petrik.konyvtarasztali.Controller">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
    <children>
-      <HBox prefWidth="800.0">
+      <HBox prefHeight="20.0" prefWidth="800.0">
          <children>
             <Button mnemonicParsing="false" onAction="#torlesClick" text="Törlés" />
          </children>
       </HBox>
-      <HBox prefHeight="100.0" prefWidth="800.0">
+      <HBox prefHeight="580.0" prefWidth="800.0">
          <children>
             <TableView fx:id="booksTableView" prefHeight="200.0" prefWidth="800.0">
               <columns>
-                <TableColumn fx:id="cimCol" minWidth="300.0" prefWidth="75.0" text="Cím" />
-                <TableColumn fx:id="szerzoCol" minWidth="300.0" prefWidth="75.0" text="Szerző" />
+                <TableColumn fx:id="cimCol" minWidth="270.0" prefWidth="75.0" text="Cím" />
+                <TableColumn fx:id="szerzoCol" minWidth="270.0" prefWidth="75.0" text="Szerző" />
                   <TableColumn fx:id="kiadasCol" minWidth="100.0" prefWidth="75.0" text="Kiadás éve" />
                   <TableColumn fx:id="oldalCol" minWidth="100.0" prefWidth="75.0" text="Oldalszám" />
               </columns>
