@@ -20,7 +20,7 @@ public class KonyvDB {
 
     public List<Konyv> readKonyv() throws SQLException {
         List<Konyv> konyvek = new ArrayList<>();
-        String sql = "SELECT * FROM books";
+        String sql = "SELECT id, title, author, publish_year, page_count FROM books";
         Statement stmt = conn.createStatement();
         ResultSet result = stmt.executeQuery(sql);
         while(result.next()) {
@@ -33,6 +33,13 @@ public class KonyvDB {
             konyvek.add(konyv);
         }
         return konyvek;
+    }
+
+    public boolean deleteKonyv(int id) throws SQLException {
+        String sql = "DELETE FROM books WHERE id = ?";
+        PreparedStatement stmt = conn.prepareStatement(sql);
+        stmt.setInt(1, id);
+        return stmt.executeUpdate() > 0;
     }
 
 }

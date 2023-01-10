@@ -16,10 +16,19 @@ public class Konyv {
     }
 
     public Konyv(String title, String author, int publish_year, int page_count) {
+        this.id = 0;
         this.title = title;
         this.author = author;
         this.publish_year = publish_year;
         this.page_count = page_count;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getTitle() {
