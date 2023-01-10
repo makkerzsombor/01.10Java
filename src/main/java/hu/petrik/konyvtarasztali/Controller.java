@@ -3,8 +3,10 @@ package hu.petrik.konyvtarasztali;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -40,6 +42,7 @@ public class Controller {
             Platform.runLater(() -> {
                 alert(Alert.AlertType.WARNING, "Hiba történt az adatbázis kapcsolat kialakításakor!",
                         e.getMessage());
+                //TODO: window bezárás
             });
         }
     }
