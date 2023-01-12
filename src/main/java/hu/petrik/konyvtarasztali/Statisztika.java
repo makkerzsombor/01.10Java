@@ -63,17 +63,17 @@ public class Statisztika {
         //Feladat 5
         System.out.print("Adjon meg egy könyv címet: ");
         Scanner sc = new Scanner(System.in);
-        String cim = sc.next();
+        String cim = sc.nextLine();
         int szerzosIndex = 0;
         boolean vanszerzo = false;
         for (int i = 0; i < konyves.size(); i++) {
-            if (konyves.get(i).getAuthor().equals(cim)){
+            if (konyves.get(i).getTitle().equals(cim)){
                 szerzosIndex = konyves.get(i).getId();
                 vanszerzo = true;
             }
         }
         if (vanszerzo){
-            System.out.println("Az megadott könyv szerzője: " + konyves.get(szerzosIndex));
+            System.out.println("Az megadott könyv szerzője: " + konyves.get(szerzosIndex).getAuthor());
         }else{
             System.out.println("Az adott könyvnek nincsen szerzője!");
         }
