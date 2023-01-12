@@ -42,7 +42,7 @@ public class Controller {
             Platform.runLater(() -> {
                 alert(Alert.AlertType.WARNING, "Hiba történt az adatbázis kapcsolat kialakításakor!",
                         e.getMessage());
-                //TODO: window bezárás
+                Platform.exit();
             });
         }
     }
