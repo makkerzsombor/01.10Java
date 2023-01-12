@@ -1,27 +1,19 @@
 package hu.petrik.konyvtarasztali;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class Statisztika {
     static List<Konyv> konyvek = new ArrayList<Konyv>();
     static KonyvDB db;
 
     public static void main(String[] args) {
-        //if (Arrays.asList(args).contains("--stat")){
             try {
                 db = new KonyvDB();
                 feladatok();
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
-        //}else{
-        //    Application.main(args);
-        //}
-
     }
 
     private static void feladatok() throws SQLException {
@@ -58,7 +50,22 @@ public class Statisztika {
         }
         System.out.println("A leghosszabb könyv:");
         System.out.println(konyves.get(index));
+
         //Feladat 4
+        Map<String, Integer> authorBookCount = new HashMap<>();
+        for (Konyv konyv : konyves) {
+            authorBookCount.putIfAbsent(konyv.getAuthor(), 0);
+            authorBookCount.put(konyv.getAuthor(), authorBookCount.get(konyv.getAuthor())+1);
+        }
+        int legtobbKonyv = 0;
+        String szerzo = "";
+        for (Map.Entry<String, Integer> bejegyzes : authorBookCount.entrySet()){
+            if (bejegyzes.getValue() > legtobbKonyv) {
+                legtobbKonyv = bejegyzes.getValue();
+                szerzo = bejegyzes.getKey();
+            }
+        }
+        System.out.println("A legtöbb könyvvel rendelkező szerző: " + szerzo);
 
         //Feladat 5
         System.out.print("Adjon meg egy könyv címet: ");

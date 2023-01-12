@@ -5,6 +5,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Arrays;
 
 public class Application extends javafx.application.Application {
     @Override
@@ -17,6 +18,10 @@ public class Application extends javafx.application.Application {
     }
 
     public static void main(String[] args) {
-        launch();
+        if (Arrays.asList(args).contains("--stat")){
+            Statisztika.main(args);
+        }else{
+            launch();
+        }
     }
 }
